@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+
+    websever:
+        container_name: websever
+        image: bitnami/nginx
+        ports:
+          - 80:8080
+        depends_on:
+            - phpfpm
+        volumes:
+            - ./dockers/websever/logs:/opt/bitnami/nginx/logs
+            - ./dockers/websever/nginx/conf/vhosts:/bitnami/nginx/conf/vhosts
+            - ./www:/app
+
+    phpfpm:
+        container_name: phpfpm
+        image: bitnami/php-fpm
+        volumes:
+            - ./dockers/phpfpm/conf:/bitnami/php-fpm/conf/
+            - ./www:/app
+    mysql:
+        container_name: mysql
+        image: bitnami/mysql
+        volumes:
+            - ./dockers/mysql/db/data:/bitnami
+        ports:
+            - 3306:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=my_user
+            - MYSQL_PASSWORD=my_password
+            - MYSQL_DATABASE=my_database
+

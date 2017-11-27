@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+/dockers/mysql/db/
+/dockers/websever/logs/access.log
+/dockers/websever/logs/error.log
+/dockers/phpfpm/conf/
+!/dockers/phpfpm/conf/php.ini
+.idea
