@@ -32,8 +32,9 @@ where ```your-name``` is your GitHub ID
 - For Mac    https://docs.docker.com/docker-for-mac/install/
 - For Ubuntu https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
 
-2. run docker
+2. run docker 
 ```
+cd cpe-web/
 docker-compose up -d
 ```
 
